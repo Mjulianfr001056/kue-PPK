@@ -1,0 +1,44 @@
+### Menambahkan member
+POST http://localhost:8080/member
+Content-Type: application/json
+
+{
+    "memberID": "112",
+    "name": "Budi",
+    "address": "Jalan Selamat No. 2",
+    "phoneNumber":"08783223xxx"
+}
+
+### Mendapatkan semua member
+GET http://localhost:8080/member
+
+### Mendapatkan data member berdasarkan ID
+GET http://localhost:8080/member/1
+
+### Mengubah data Member
+PUT http://localhost:8080/member/1
+Content-Type: application/json
+
+{
+  "memberID": "111",
+  "name": "Ahmad Anas",
+  "address": "Jalan Merdeka No. 2",
+  "phoneNumber": "082193223xxx"
+}
+
+### Mengubah nomor telepon Member
+PATCH http://localhost:8080/member/1
+Content-Type: application/json
+
+{
+  "phoneNumber": "082193223111"
+}
+
+### Mencari data Member berdasarkan memberID
+GET http://localhost:8080/member/search/findByMemberID?member_id=111
+
+### Mencari data Member berdasarkan nama
+GET http://localhost:8080/member/search/findByName?name=Ahmad%20Anas
+
+### Menghapus Member
+DELETE http://localhost:8080/member/1
