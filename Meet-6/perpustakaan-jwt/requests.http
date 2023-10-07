@@ -1,0 +1,94 @@
+### Menambahkan member
+POST {{host}}/member
+Content-Type: application/json
+
+{
+  "memberID": "111",
+  "name": "Ahmad",
+  "address": "Jalan Merdeka No. 1",
+  "phoneNumber": "082193223xxx"
+}
+
+###
+GET {{host}}/member
+
+### Mendapatkan semua member berdasarkan ID
+GET {{host}}/member/1
+
+### Mengubah data Member
+PUT {{host}}/member/1
+Content-Type: application/json
+
+{
+  "memberID": "111",
+  "name": "Ahmad Anas",
+  "address": "Jalan Merdeka No. 2",
+  "phoneNumber": "082193223xxx"
+}
+
+### Mengubah nomor telepon Member
+PATCH {{host}}/member/1
+Content-Type: application/json
+
+{
+  "phoneNumber": "082193223111"
+}
+
+### Mencari data Member berdasarkan memberID
+GET {{host}}/member/search/findByMemberID?member_id=111
+
+### Mencari data Member berdasarkan nama
+GET {{host}}/member/search/findByName?name=Ahmad%20Anas
+
+### Menghapus Member
+DELETE http://localhost:8080/member/1
+
+### Menambahkan peminjaman
+POST http://localhost:8080/borrowing
+Content-Type: application/json
+
+{
+
+  "member": "member/2",
+  "bookID": "book/1",
+  "start_date": "2023-09-11",
+  "end_date": "2023-09-17",
+  "status": "DIKEMBALIKAN",
+  "penalty": 3
+}
+
+
+### Melihat semua peminjaman
+GET {{host}}/borrowing
+
+### Melihat peminjaman berdasarkan memberID
+GET {{host}}/borrowing/search/findByMemberMemberID?memberID=111
+
+### Melihat peminjaman berdasarkan bookID
+GET {{host}}/borrowing/search/findByBookIDId?bookID=1
+
+### Melihat peminjaman berdasarkan bookTitle
+GET http://localhost:8080/borrowing/search/findByBookIDTitleContaining?bookTitle=Web
+
+### Registrasi
+POST http://localhost:8080/register
+Content-Type: application/json
+
+{
+  "name" : "Andi",
+  "email" : "andi@mail.com",
+  "password": "123"
+}
+
+### Login
+POST http://localhost:8080/login
+Content-Type: application/json
+
+{
+  "email" : "andi@mail.com",
+  "password": "123"
+}
+
+### View
+GET http://localhost:8080/member
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbmRpQG1haWwuY29tIiwiaXNzIjoiUG9sc3RhdCIsImlhdCI6MTY5NjIyODA5MCwiZXhwIjoxNjk2MzE0NDkwfQ.o4gr7d0XVa3_-Kg-sgV2g6XHhwrcbfDKkcjAIOXubVtCVGUVWF7nXurE2hUihZmHo26VXI42bt3nWxn7IiUaBQ
